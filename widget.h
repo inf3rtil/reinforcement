@@ -8,6 +8,9 @@
 #include <qpicture.h>
 #include <QTimer>
 
+#define TIMEOUT_TEST_MS 4000
+#define TIMEOUT_BLACK_SCREEN_MS 2000
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE

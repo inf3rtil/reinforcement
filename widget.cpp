@@ -27,7 +27,7 @@ void Widget::updateLabelsArray()
     for(int i=0; i < 9; i++){
         viewImages[i]->setPixmap(test->pic[i].image);
     }
-    timeoutTestTimer.start(4000);
+    timeoutTestTimer.start(TIMEOUT_TEST_MS);
 }
 
 Widget::Widget(QWidget *parent)
@@ -57,7 +57,7 @@ void Widget::clearScreen()
     for(int i=0; i < 9; i++){
         viewImages[i]->clear();
     }
-    this->updateTestTimer.start(2000);
+    this->updateTestTimer.start(TIMEOUT_BLACK_SCREEN_MS);
 }
 
 void Widget::keyPressEvent(QKeyEvent *event)
