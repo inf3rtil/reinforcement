@@ -39,7 +39,7 @@ ImageTest * Experiment::nextTest(bool random)
 }
 
 // handle answer and increment or not the test
-void Experiment::setAnswer(int answer)
+Picture::TestChoice Experiment::setAnswer(int answer)
 {
     Picture::TestChoice choice = tests[currentTest].pic[answer-1].choice; //pass index with -1 directly
     if(choice == Picture::TestChoice::RIGHT_ANSWER)
@@ -64,5 +64,5 @@ void Experiment::setAnswer(int answer)
         qDebug() << "timeout";
         currentTest++;
     }
-
+    return choice;
 }

@@ -18,7 +18,7 @@ public:
     void setDataPath(QString dataPath);
     void initTest(void);
     ImageTest *nextTest(bool random);
-    void setAnswer(int answer);
+    Picture::TestChoice setAnswer(int answer);
 };
 
 #endif // EXPERIMENT_H

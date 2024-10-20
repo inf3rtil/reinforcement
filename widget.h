@@ -3,13 +3,17 @@
 
 #include "config.h"
 #include "experiment.h"
+#include "stimulus.h"
 #include <QWidget>
+#include <qboxlayout.h>
 #include <qlabel.h>
 #include <qpicture.h>
 #include <QTimer>
 
-#define TIMEOUT_TEST_MS 4000
+#define TIMEOUT_TEST_MS 6000
 #define TIMEOUT_BLACK_SCREEN_MS 2000
+#define CLEAR_SCREEN_TIMER_MS 2000
+#define TOTAL_STIMULUS 9
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -21,7 +25,6 @@ class Widget : public QWidget
 
 public:
 
-    QLabel *viewImages[9] = {nullptr};
     void initLabelsArray(void);
     void updateLabelsArray(void);
     Widget(QWidget *parent = nullptr);
@@ -33,7 +36,9 @@ private:
     Experiment exp;
     QTimer updateTestTimer;
     QTimer timeoutTestTimer;
-    void clearScreen(void);
+    QTimer clearScreenTimer;
+    Stimulus *stimulus;
+    QGridLayout *layout;
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -41,5 +46,6 @@ protected:
 public slots:
     void updateScreen(void);
     void timeoutScreen(void);
+    void clearScreen(void);
 };
 #endif // WIDGET_H
